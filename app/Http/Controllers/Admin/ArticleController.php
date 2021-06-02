@@ -125,6 +125,11 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
         $article->delete();
+        // 删除对应评论
+        $comments = $article->comments;
+        foreach ($comments as $comment) {
+            $comment->delete();
+        }
         return response()->json([
             'message' => '删除成功!'
         ]);

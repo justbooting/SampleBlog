@@ -142,7 +142,7 @@ export class Comment extends React.Component {
   }
   //拉黑 IP
   handleBlack = (ip) => {
-    axios.post(window.apiURL + 'blacklist/', {
+    axios.post(window.apiURL + 'blacklist', {
       ip: ip
     })
       .then((response) => {

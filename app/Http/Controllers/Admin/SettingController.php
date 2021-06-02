@@ -9,6 +9,7 @@ use App\Setting;
 class SettingController extends Controller
 {
 
+    // 查询所有设置
     public function index(Request $request)
     {
         $data = Setting::getSettings($request->keys);
@@ -17,6 +18,7 @@ class SettingController extends Controller
         ]);
     }
 
+    // 保存设置
     public function store(Request $request)
     {
         $settings = $request->all();

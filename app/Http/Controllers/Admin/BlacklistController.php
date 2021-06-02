@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Blacklist;
 
 class BlacklistController extends Controller
-{
+{   
+    // 返回黑名单列表
     public function index()
     {
         $blacks = Blacklist::all();
@@ -16,6 +17,7 @@ class BlacklistController extends Controller
         ]);
     }
 
+    // 拉入黑名单
     public function store(Request $request)
     {
         $ip = $request->ip;
@@ -34,6 +36,7 @@ class BlacklistController extends Controller
         }
     }
 
+    // 移除黑名单
     public function destroy($id)
     {
         $black = Blacklist::findOrFail($id);

@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@home')->name('home');
 // 管理后台页
 Route::get('/admin', 'AdminController@index')->name('admin');
 
-// 文章搜索
+// 读者文章搜索
 Route::get('/articles/search/{key}', 'ArticleController@search')->name('articles.search.get');
 Route::post('/articles/search', 'ArticleController@search')->name('articles.search.post');
 Route::get('/articles/list', 'ArticleController@list')->name('articles.list');
@@ -48,7 +48,7 @@ Route::middleware(['auth', 'super'])->namespace('Admin')->prefix('admin-api')->g
   Route::post('/import', 'ArticleController@import');
   // 标签查增删改
   Route::get('/tags', 'TagController@index');
-  Route::get('/tags/publish/{id}', 'TagController@store');
+  Route::post('/tags/publish/', 'TagController@store');
   Route::get('/tags/delete/{id}', 'TagController@destroy');
   Route::get('/tags/edit/{id}', 'TagController@edit');
   // 显示评论列表

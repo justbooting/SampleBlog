@@ -20,7 +20,10 @@ class CommentController extends Controller
         $comments = Comment::orderBy('created_at', 'desc')->paginate($request->pagesize);
         foreach ($comments as $comment) {
             $comment->key = $comment->id;
-            $comment->article_name = $comment->article_title;
+            $article = $comment->article;
+            if(isset($article)){
+                $comment->article_name = $article->title;
+            }
             $comment->location = '/articles/' . $comment->article_id . '#comment' . $comment->id;
         }
         return $comments;

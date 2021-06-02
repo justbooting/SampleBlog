@@ -64,7 +64,7 @@
                   </span>
                 </p>
 
-                <!-- replys -->
+                <!-- replys 回复-->
                 <div class="z-reply">
                   @foreach($comment->replys as $reply)
                     <!-- 定位点 -->

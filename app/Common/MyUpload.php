@@ -14,7 +14,6 @@ class MyUpload
     static public function uploadFile($file)
     {
         $fileName = md5_file($file).'.'.$file->extension();
-
         $file_disk = Setting::where('key', 'file_disk')->value('value');
         if ($file_disk == 'cos') {
             //使用：腾讯云静态存储 COS

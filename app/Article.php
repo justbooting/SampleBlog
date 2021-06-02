@@ -16,7 +16,7 @@ class Article extends Model
     ];
 
     /**
-       * 获得此博客文章的评论
+       * 获得此博客文章的评论(一对多关联)
        */
     public function comments()
     {

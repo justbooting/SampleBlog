@@ -64,7 +64,7 @@ class ArticleController extends Controller
           $article->created_at_date = $article->created_at->toDateString();
           $article->updated_at_diff = $article->updated_at->diffForHumans();
       }
-
+      
 	  $searches = Search::where('search_num', '>', 1)->orderBy('search_num')->limit(10)->get();
       return view('articles.list', compact('articles', 'searches'));
   }

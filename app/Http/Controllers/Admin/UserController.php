@@ -10,7 +10,7 @@ use App\User;
 
 class UserController extends Controller
 {
-
+    // 根据id查询用户
     public function show($id)
     {
         return response()->json([
@@ -18,6 +18,7 @@ class UserController extends Controller
         ]);
     }
 
+    // 更新用户信息
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
@@ -32,6 +33,7 @@ class UserController extends Controller
         ]);
     }
 
+    // 改变密码
     public function changePassword(Request $request, $id)
     {
         $user = User::findOrFail($id);

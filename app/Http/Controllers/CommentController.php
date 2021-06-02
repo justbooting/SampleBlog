@@ -9,6 +9,7 @@ use App\Common\MyFunction;
 use App\Comment;
 use App\User;
 use App\Blacklist;
+use App\Article;
 use Auth;
 
 class CommentController extends Controller
@@ -48,13 +49,17 @@ class CommentController extends Controller
         $comment->ip = $ip;
         // $comment->city = $city['region'].' '.$city['city'];
         $comment->save();
-
+        // 更新文章评论
+        $article = Article::find($request->article_id);
+        $article->increment('comment');
+        $article->save();
         //发送邮件
         if ($request->parent_id) {
             $commentTarget = Comment::findOrFail($request->target_id);
             $url = url("/articles/{$comment->article->id}#comment{$comment->id}");
             if (setting('reply_email')) {
                 try {
+                    // send发送邮箱视图，主题是文章标题
                     Mail::to($commentTarget->email)
                         ->send(new CommentRemind($commentTarget->content, $comment, $url));
                 }catch (\Exception $e) {}

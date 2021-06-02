@@ -8,7 +8,7 @@
         <div class="col-md-7 col-md-offset-1">
           	<div class="">
 				@isset($tags)
-					<span>热门关键词：</span>
+					<span>热门标签：</span>
 					@foreach($tags as $tag)
 						<a href="{{ route('tags.show', $tag->name) }}"><span style="margin-right:10px">{{ $tag->name }}</span></a>
 					@endforeach
