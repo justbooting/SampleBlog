@@ -23,7 +23,11 @@
 建议：安装laragon集成环境，免去配置上述要求的烦恼（不过node.js扔需要安装）
 
 拉取代码
+<<<<<<< HEAD
 git clone 
+=======
+git clone https://github.com/justbooting/SampleBlog.git
+>>>>>>> f30ec8425fb29aac8cee4d456fb04edeb9de39c6
 
 拉取完毕后，进入项目目录，安装依赖
 
